@@ -86,5 +86,5 @@ set foldnestmax=3       " deepest fold is 3 levels
 set foldlevel=9
 set nofoldenable        "dont fold by default "
 
-" extended '%' mapping for if/then/else/end etc
+" extended '%' mapping for if/then/else/end etc
 runtime macros/matchit.vim
