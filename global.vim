@@ -22,7 +22,7 @@ set laststatus=2        " always show the status line
 set listchars=tab:▷⋅,trail:·
 set list
 
-colorscheme vividchalk
+colorscheme wombat256mod
 set background=dark
 
 " highlight spell errors
@@ -32,11 +32,13 @@ hi SpellErrors guibg=red guifg=black ctermbg=red ctermfg=black
                         " ignore these files when completing names and in
                         " explorer
 set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
+set wildmode=list:longest " Shell-like behaviour for command autocompletion
 set shell=/bin/bash     " use bash for shell commands
 set autowriteall        " Automatically save before commands like :next and :make
 set hidden              " enable multiple modified buffers
 set history=1000
-set autoread            " automatically read feil that has been changed on disk and doesn't have changes in vim
+set cf                  " enable error files & error jumping
+set autoread            " automatically read files that has been changed on disk and doesn't have changes in vim
 set backspace=indent,eol,start
 set guioptions-=T       " disable toolbar"
 set completeopt=menuone,preview
@@ -46,9 +48,14 @@ set modelines=5         " number of lines to check for vim: directives at the st
 "set fixdel                 " fix terminal code for delete (if delete is broken but backspace works)
 set autoindent          " automatically indent new line
 
-set ts=4                " number of spaces in a tab
-set sw=4                " number of spaces for indent
-set et                  " expand tabs into spaces
+set tabstop=2           " number of spaces in a tab
+set shiftwidth=4        " number of spaces for indent
+set expandtab           " expand tabs into spaces
+" set smarttab
+
+" scroll settings
+set scrolloff=3   " more context around cursor
+set sidescroll=3  " when scrolling horizonally
 
 " mouse settings
 if has("mouse")
@@ -66,18 +73,18 @@ set smartcase           " do not ignore if search pattern has CAPS
 set ofu=syntaxcomplete#Complete
 let g:rubycomplete_buffer_loading = 0
 let g:rubycomplete_classes_in_global = 1
+" set completeopt=longest,menuone " see bindings.vim
 
 " directory settings
 set backupdir=~/.backup,.       " list of directories for the backup file
 set directory=~/.backup,~/tmp,. " list of directory names for the swap file
-set nobackup            " do not write backup files
-set noswapfile          " do not write .swp files
 
 " folding
 set foldcolumn=0        " columns for folding
-set foldmethod=indent
+set foldmethod=indent   " fold based on indent
+set foldnestmax=3       " deepest fold is 3 levels
 set foldlevel=9
 set nofoldenable        "dont fold by default "
 
-" extended '%' mapping for if/then/else/end etc
+" extended '%' mapping for if/then/else/end etc
 runtime macros/matchit.vim
