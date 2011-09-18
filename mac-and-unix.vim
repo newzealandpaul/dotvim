@@ -1,1 +1,1 @@
-set undodir=~/undo
+set undodir=~/.undo
