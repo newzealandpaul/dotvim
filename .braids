@@ -202,6 +202,13 @@ bundle/vim-makegreen:
   squashed: true
   type: git
   url: https://github.com/reinh/vim-makegreen.git
+bundle/vim-r-plugin: 
+  branch: master
+  remote: master/braid/bundle/vim-r-plugin
+  revision: adf53a47cf767f48c01f5e57b6281b4290ad4570
+  squashed: true
+  type: git
+  url: https://github.com/vim-scripts/Vim-R-plugin.git
 bundle/vim-ruby-refactoring: 
   branch: master
   remote: braid/bundle/vim-ruby-refactoring
