@@ -46,7 +46,7 @@ nmap <leader>SA :SessionSaveAs<CR>
 " ,b to display current buffers list
 nmap <Leader>b :MiniBufExplorer<cr>
 let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
