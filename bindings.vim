@@ -48,3 +48,30 @@ noremap <C-t> :tabnew<cr>
 nmap :W :w
 nmap :Q :q
 nmap :E :e
+
+" Ctrl-(j,k,h,l) to move up,down,left,right windows
+" wisdom from http://amix.dk/vim/vimrc.html
+map [b <C-W>j
+map [a <C-W>k
+map [d <C-W>h
+map [c <C-W>l
+
+" Use the arrows to something usefull
+map <C-right> :bn<cr>
+map <C-left> :bp<cr>
+
+" When pressing <leader>cd switch to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>
+
+" Close all the buffers
+map <leader>ba :1,300 bd!<cr>
+
+" Map space to / (search) and c-space to ? (backgwards search))
+map <space> /
+map <c-space> ?
+map <silent> <leader><cr> :noh<cr>
+
+" Do :help cope if you are unsure what cope is. It's super useful!
+map <leader>cc :botright cope<cr>
+map <leader>n :cn<cr>
+map <leader>p :cp<cr>
