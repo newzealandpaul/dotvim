@@ -162,8 +162,8 @@ bundle/surround:
   url: git://github.com/tpope/vim-surround.git
 bundle/syntastic: 
   branch: master
-  remote: braid/bundles/syntastic
-  revision: 88dbca87c80de9b7852672907f6fc9fb935f531c
+  remote: master/braid/bundles/syntastic
+  revision: e220e1d8e6582b67618ac0d07b32c02e5f78210f
   squashed: true
   type: git
   url: git://github.com/scrooloose/syntastic.git
