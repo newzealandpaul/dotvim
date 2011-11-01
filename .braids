@@ -239,8 +239,8 @@ bundle/vividchalk:
   url: git://github.com/vitaly/vim-vividchalk.git
 vim-pathogen: 
   branch: master
-  remote: braid/vim-pathogen
-  revision: 968e87ef7fa5ce19dbd3ffe23f0e0d58d88fae43
+  remote: master/braid/vim-pathogen
+  revision: 00ce0614f0526708431243ca6b126a3bec802697
   squashed: true
   type: git
   url: git://github.com/tpope/vim-pathogen.git
