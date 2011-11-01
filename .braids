@@ -120,8 +120,8 @@ bundle/pastie:
   url: git://github.com/tpope/vim-pastie.git
 bundle/rails: 
   branch: master
-  remote: braid/bundles/rails
-  revision: 26dade8251a07da3d78467bcbc08bd1b2767008d
+  remote: master/braid/bundles/rails
+  revision: 8ed5ac353a561f9bef0903787156bf4228b97c8b
   squashed: true
   type: git
   url: git://github.com/tpope/vim-rails.git
