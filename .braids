@@ -244,3 +244,10 @@ vim-pathogen:
   squashed: true
   type: git
   url: git://github.com/tpope/vim-pathogen.git
+vim-peepopen: 
+  branch: master
+  remote: master/braid/vim-peepopen
+  revision: 7d488a2e5368c02912d427e2fd9e351bb7afc998
+  squashed: true
+  type: git
+  url: https://github.com/shemerey/vim-peepopen.git
