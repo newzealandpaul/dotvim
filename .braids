@@ -183,8 +183,8 @@ bundle/unimpaired:
   url: git://github.com/tpope/vim-unimpaired.git
 bundle/vim-bundler: 
   branch: master
-  remote: braid/bundle/vim-bundler
-  revision: 3f1e6e9f58fa3e04122430714e0b2180fb683f0b
+  remote: master/braid/bundle/vim-bundler
+  revision: 595b29a16e0ff45e0332c18ba44cf0245da34dfe
   squashed: true
   type: git
   url: https://github.com/tpope/vim-bundler.git

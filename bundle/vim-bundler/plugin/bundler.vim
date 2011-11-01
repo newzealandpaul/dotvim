@@ -124,6 +124,7 @@ endfunction
 
 augroup bundler_syntax
   autocmd!
+  autocmd BufNewFile,BufReadPost Gemfile set filetype=ruby
   autocmd Syntax ruby if expand('<afile>:t') ==? 'gemfile' | call s:syntaxfile() | endif
   autocmd BufNewFile,BufRead [Gg]emfile.lock setf gemfilelock
   autocmd FileType gemfilelock set suffixesadd=.rb
@@ -197,7 +198,15 @@ function! s:project_gems() dict abort
   let time = getftime(self.path('Gemfile.lock'))
   if time != -1 && time != get(self,'_lock_time',-1)
     let self._gems = {}
-    let output = system('ruby -C '.s:shellesc(self.path()).' -rubygems -e "require %{bundler}; Bundler.load.specs.map {|s| puts %[#{s.name} #{s.full_gem_path}]}"')
+
+    " Explicitly setting $PATH means /etc/zshenv on OS X can't touch it.
+    if executable('env')
+      let prefix = 'env PATH='.s:shellesc($PATH).' '
+    else
+      let prefix = ''
+    endif
+
+    let output = system(prefix.'ruby -C '.s:shellesc(self.path()).' -rubygems -e "require %{bundler}; Bundler.load.specs.map {|s| puts %[#{s.name} #{s.full_gem_path}]}"')
     if v:shell_error
       for line in split(output,"\n")
         if line !~ '^\t'
@@ -212,7 +221,7 @@ function! s:project_gems() dict abort
       call self.alter_buffer_paths()
     endif
   endif
-  return self._gems
+  return get(self,'_gems',{})
 endfunction
 
 call s:add_methods('project',['gems'])
@@ -252,7 +261,17 @@ call s:add_methods('buffer',['getvar','setvar','project'])
 " }}}1
 " Bundle {{{1
 
-function! s:push_chdir(...)
+let s:errorformat = ''
+      \.'%+E%f:%l:\ parse\ error,'
+      \.'%W%f:%l:\ warning:\ %m,'
+      \.'%E%f:%l:in\ %*[^:]:\ %m,'
+      \.'%E%f:%l:\ %m,'
+      \.'%-C%\tfrom\ %f:%l:in\ %.%#,'
+      \.'%-Z%\tfrom\ %f:%l,'
+      \.'%-Z%p^,'
+      \.'%-G%.%#'
+
+function! s:push_chdir()
   if !exists("s:command_stack") | let s:command_stack = [] | endif
   let chdir = exists("*haslocaldir") && haslocaldir() ? "lchdir " : "chdir "
   call add(s:command_stack,chdir.s:fnameescape(getcwd()))
@@ -268,21 +287,10 @@ endfunction
 function! s:Bundle(bang,arg)
   let old_makeprg = &l:makeprg
   let old_errorformat = &l:errorformat
-  call s:push_chdir()
   try
     let &l:makeprg = 'bundle'
-    let &l:errorformat = ''
-          \.'%+E%f:%l:\ parse\ error,'
-          \.'%W%f:%l:\ warning:\ %m,'
-          \.'%E%f:%l:in\ %*[^:]:\ %m,'
-          \.'%E%f:%l:\ %m,'
-          \.'%-C%\tfrom\ %f:%l:in\ %.%#,'
-          \.'%-Z%\tfrom\ %f:%l,'
-          \.'%-Z%p^,'
-          \.'%-G%.%#'
+    let &l:errorformat = s:errorformat
     execute 'make! '.a:arg
-    redraw
-    call s:project().gems()
     if a:bang ==# ''
       return 'if !empty(getqflist()) | cfirst | endif'
     else
@@ -291,7 +299,6 @@ function! s:Bundle(bang,arg)
   finally
     let &l:errorformat = old_errorformat
     let &l:makeprg = old_makeprg
-    call s:pop_command()
   endtry
 endfunction
 
@@ -302,7 +309,29 @@ function! s:BundleComplete(A,L,P)
   return s:completion_filter(['install','update','exec','package','config','check','list','show','outdated','console','viz','benchmark'],a:A)
 endfunction
 
+function! s:SetupMake() abort
+  setlocal makeprg=bundle
+  let &l:errorformat = s:errorformat
+endfunction
+
 call s:command("-bar -bang -nargs=? -complete=customlist,s:BundleComplete Bundle :execute s:Bundle('<bang>',<q-args>)")
+
+augroup bundler_make
+  autocmd FileType gemfilelock call s:SetupMake()
+  autocmd FileType ruby
+        \ if expand('<afile>:t') ==? 'gemfile' |
+        \   call s:SetupMake() |
+        \ endif
+  autocmd QuickFixCmdPre *make*
+        \ if &makeprg =~# '^bundle' && exists('b:bundler_root') |
+        \   call s:push_chdir() |
+        \ endif
+  autocmd QuickFixCmdPost *make*
+        \ if &makeprg =~# '^bundle' && exists('b:bundler_root') |
+        \   call s:pop_command() |
+        \   execute 'call s:project().gems()' |
+        \ endif
+augroup END
 
 " }}}1
 " Bopen {{{1
@@ -313,11 +342,12 @@ function! s:Open(cmd,gem,lcd)
   elseif a:gem ==# ''
     return a:cmd.' `=bundler#buffer().project().path("Gemfile.lock")`'
   elseif has_key(s:project().gems(),a:gem)
-    let exec = a:cmd.' `=bundler#buffer().project().gems()['.string(a:gem).']`'
+    let path = fnameescape(bundler#buffer().project().gems()[a:gem])
+    let exec = a:cmd.' '.path
     if a:cmd =~# '^pedit' && a:lcd
-      let exec .= '|wincmd P|lcd %|wincmd p'
+      let exec .= '|wincmd P|lcd '.path.'|wincmd p'
     elseif a:lcd
-      let exec .= '|lcd %'
+      let exec .= '|lcd '.path
     endif
     return exec
   else
@@ -352,20 +382,18 @@ function! s:buffer_alter_paths() dict abort
       call insert(new,remove(new,index))
     endif
     let old = type(self.getvar('bundler_paths')) == type([]) ? self.getvar('bundler_paths') : []
-    if old !=# new
-      for [option, suffix] in [['path', 'lib'], ['tags', 'tags']]
-        let value = self.getvar('&'.option)
-        if !empty(old)
-          let drop = s:build_path_option(old,suffix)
-          let index = stridx(value,drop)
-          if index > 0
-            let value = value[0:index-1] . value[index+strlen(drop):-1]
-          endif
+    for [option, suffix] in [['path', 'lib'], ['tags', 'tags']]
+      let value = self.getvar('&'.option)
+      if !empty(old)
+        let drop = s:build_path_option(old,suffix)
+        let index = stridx(value,drop)
+        if index > 0
+          let value = value[0:index-1] . value[index+strlen(drop):-1]
         endif
-        call self.setvar('&'.option,value.s:build_path_option(new,suffix))
-      endfor
-      call self.setvar('bundler_paths',new)
-    endif
+      endif
+      call self.setvar('&'.option,value.s:build_path_option(new,suffix))
+    endfor
+    call self.setvar('bundler_paths',new)
   endif
 endfunction
 
