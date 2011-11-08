@@ -19,7 +19,7 @@ nmap <C-P> :NERDTreeToggle<CR>
 " ,n to toggle the file browser tree
 nmap <leader>n :NERDTreeToggle<CR>
 " ,p to show current file in the tree
-nmap <leader>p :NERDTreeFind<CR>
+" nmap <leader>p :NERDTreeFind<CR>
 
 " nerdcommenter
 " ,/ to invert comment on the current line/selection
