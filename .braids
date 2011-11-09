@@ -118,6 +118,13 @@ bundle/pastie:
   squashed: true
   type: git
   url: git://github.com/tpope/vim-pastie.git
+bundle/phpindenting: 
+  branch: master
+  remote: master/braid/bundle/phpindenting
+  revision: becc93cd8ce217da8745a1609124a649c0b7c5ac
+  squashed: true
+  type: git
+  url: git://github.com/2072/PHP-Indenting-for-VIm.git
 bundle/rails: 
   branch: master
   remote: master/braid/bundles/rails
