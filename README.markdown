@@ -1,24 +1,4 @@
-This is a complete Vim configuration that I'm using everywhere
-
-Plugins that are available from a git repository were added with
-[Braid](http://github.com/evilchelu/braid) for easy upgrading.
-
-*Some* help tips are provided for *some* of the plugins. please check out the plugin's docs for more info.
-
-##### Installation
-
-From your homedirectory (on Linux/Mac OSX):
-
-* `git clone git://github.com/astrails/dotvim.git`
-* `ln -sfn dotvim .vim`
-* `ln -sfn dotvim/vimrc .vimrc`
-* you create and edit ~/.vim\_local if you want to have your some
-  local/personal settings you don't want to commit into the repo
-
-* If you want to use command-t file finder plugin you need to compile native extension first.
-  just run `make` at the top of .vim directory
-
-Note: if you already have `~/.vim` `~/.vimrc` REMOVE THEM (you might want to backup them first :)
+NOTE: This is my personal Vim config. If you are not using Mac OS X and zsh you might run into problems.
 
 #### General configuration
 
