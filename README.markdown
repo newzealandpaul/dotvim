@@ -1,4 +1,4 @@
-NOTE: This is my personal Vim config. If you are not using Mac OS X and zsh you might run into problems.
+NOTE: This is my personal Vim config. If you are not using Mac OS X and zsh you might run into problems. For a more general vim config I recomend [https://github.com/astrails/dotvim](https://github.com/astrails/dotvim)](https://github.com/astrails/dotvim).
 
 #### General configuration
 
