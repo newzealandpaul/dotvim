@@ -69,6 +69,13 @@ bundle/fugitive:
   squashed: true
   type: git
   url: git://github.com/tpope/vim-fugitive.git
+bundle/gundo: 
+  branch: master
+  remote: master/braid/bundle/gundo
+  revision: 12b6f67aeb892519385529b2b5cdda55cc428d9d
+  squashed: true
+  type: git
+  url: https://github.com/sjl/gundo.vim.git
 bundle/haml: 
   branch: master
   remote: master/braid/bundles/haml
