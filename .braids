@@ -55,6 +55,13 @@ bundle/delimitMate:
   squashed: true
   type: git
   url: http://github.com/Raimondi/delimitMate.git
+bundle/detectindent: 
+  branch: master
+  remote: master/braid/bundle/detectindent
+  revision: c6f6e7bab6696d9f95220e723cef78fbb110c639
+  squashed: true
+  type: git
+  url: https://github.com/ciaranm/detectindent.git
 bundle/endwise: 
   branch: master
   remote: master/braid/bundles/endwise
