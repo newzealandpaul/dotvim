@@ -48,10 +48,11 @@ set modelines=5         " number of lines to check for vim: directives at the st
 "set fixdel                 " fix terminal code for delete (if delete is broken but backspace works)
 set autoindent          " automatically indent new line
 
+set softtabstop=2
 set tabstop=2           " number of spaces in a tab
-set shiftwidth=4        " number of spaces for indent
+set shiftwidth=2        " number of spaces for indent
 set expandtab           " expand tabs into spaces
-" set smarttab
+set smarttab
 
 " scroll settings
 set scrolloff=3   " more context around cursor
