@@ -244,6 +244,13 @@ bundle/vim-r-plugin:
   squashed: true
   type: git
   url: https://github.com/vim-scripts/Vim-R-plugin.git
+bundle/vim-rooter: 
+  branch: master
+  remote: master/braid/bundle/vim-rooter
+  revision: 26b39e549b26584bd739c9b12c9e8069b63378c8
+  squashed: true
+  type: git
+  url: git://github.com/airblade/vim-rooter.git
 bundle/vim-ruby-refactoring: 
   branch: master
   remote: master/braid/bundle/vim-ruby-refactoring
