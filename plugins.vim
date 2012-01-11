@@ -104,3 +104,6 @@ nmap <silent> <unique> <Leader>gun :GundoToggle<CR>
 
 " File plugins
 au BufRead,BufNewFile php-fpm.conf set syntax=dosini
+
+" PIV PHP IDE
+let g:DisableAutoPHPFolding = 1
