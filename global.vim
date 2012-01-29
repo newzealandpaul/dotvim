@@ -60,7 +60,7 @@ set sidescroll=3  " when scrolling horizonally
 
 " mouse settings
 if has("mouse")
-  set mouse=a
+  " set mouse=a
 endif
 set mousehide                           " Hide mouse pointer on insert mode."
 
