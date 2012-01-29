@@ -1,4 +1,11 @@
-call pathogen#runtime_append_all_bundles()
+" call pathogen#runtime_append_all_bundles()
+
+" Vundle Init
+set nocompatible
+filetype off
+set rtp+=~/.vim/vundle/
+call vundle#rc()
+source ~/.vim/vundle.vim
 
 source ~/.vim/global.vim
 source ~/.vim/functions.vim
