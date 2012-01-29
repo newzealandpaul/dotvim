@@ -1,3 +1,4 @@
+Bundle 'newzealandpaul/wombat'
 Bundle 'spf13/PIV'
 Bundle 'mileszs/ack.vim'
 Bundle 'tsaleh/vim-align'
