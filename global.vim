@@ -53,6 +53,8 @@ set tabstop=2           " number of spaces in a tab
 set shiftwidth=2        " number of spaces for indent
 set expandtab           " expand tabs into spaces
 set smarttab
+set splitright          " make new vplits on the right
+set splitbelow          " make new splits on bottom
 
 " scroll settings
 set scrolloff=3   " more context around cursor
