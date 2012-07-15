@@ -109,3 +109,7 @@ au BufRead,BufNewFile php-fpm.conf set syntax=dosini
 
 " PIV PHP IDE
 let g:DisableAutoPHPFolding = 1
+
+" Arduino Syntax
+autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
+autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
