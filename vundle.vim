@@ -1,3 +1,4 @@
+Bundle 'spolu/dwm.vim'
 Bundle 'gmarik/vundle'
 Bundle 'vim-scripts/Arduino-syntax-file'
 Bundle 'tclem/vim-arduino'
