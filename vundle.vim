@@ -1,51 +1,77 @@
-Bundle 'spolu/dwm.vim'
-Bundle 'gmarik/vundle'
-Bundle 'vim-scripts/Arduino-syntax-file'
-Bundle 'tclem/vim-arduino'
-Bundle 'alderz/smali-vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'skwp/vim-html-escape'
-Bundle 'guns/xterm-color-table.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'newzealandpaul/wombat'
-Bundle 'spf13/PIV'
-Bundle 'mileszs/ack.vim'
-Bundle 'tsaleh/vim-align'
-Bundle 'corntrace/bufexplorer'
-Bundle 'altercation/vim-colors-solarized'
-" Bundle 'wincent/Command-T'
-Bundle 'tpope/vim-cucumber'
-Bundle 'Raimondi/delimitMate'
-Bundle 'ciaranm/detectindent'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'sjl/gundo.vim'
-Bundle 'tpope/vim-haml'
-Bundle 'lukerandall/haskellmode-vim'
-Bundle 'vim-scripts/mru.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'vim-scripts/nginx.vim'
-Bundle 'tpope/vim-pastie'
-Bundle '2072/PHP-Indenting-for-VIm'
-" Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-repeat'
-Bundle 'msanders/snipmate.vim'
-Bundle 'scrooloose/vim-space'
-Bundle 'ervandew/supertab'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/syntastic'
-Bundle 'sjl/threesome.vim'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-bundler'
-Bundle 'austintaylor/vim-indentobject'
-Bundle 'shemerey/vim-peepopen'
-Bundle 'vim-scripts/Vim-R-plugin'
-Bundle 'ecomba/vim-ruby-refactoring'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'kana/vim-textobj-user'
-Bundle 'vitaly/vim-vividchalk'
-Bundle 'tpope/vim-pathogen'
-Bundle 'newzealandpaul/wombat256mod'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'vim-scripts/YankRing.vim'
+"Ruby
+Plugin 'tpope/vim-rvm'
+Plugin 'tpope/vim-endwise'
+
+" Web / HTML / PHP
+Plugin 'vim-scripts/closetag.vim'
+Plugin 'skwp/vim-html-escape'
+Plugin 'spf13/PIV'
+Plugin '2072/PHP-Indenting-for-VIm'
+
+
+" General Coding / Version Control
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+" Plugin sjl/splice.vim
+Plugin 'majutsushi/tagbar'
+
+" Snippets
+Plugin 'sirver/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'ervandew/supertab'
+
+
+" Other Languages
+Plugin 'lukerandall/haskellmode-vim'
+Plugin 'vim-scripts/Vim-R-plugin'
+Plugin 'sirtaj/vim-openscad'
+
+"Mac
+Plugin 'kana/vim-fakeclip'
+
+"Vim / Text 
+Plugin 'spolu/dwm.vim'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'vim-scripts/YankRing.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'kien/ctrlp.vim'
+Plugin 'corntrace/bufexplorer'
+Plugin 'ciaranm/detectindent'
+Plugin 'sjl/gundo.vim'
+Plugin 'vim-scripts/mru.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+" Plugin 'shemerey/vim-peepopen'
+
+"Vim Complete
+Plugin 'Valloric/YouCompleteMe'
+
+"Vim Themes / Theme Support
+Plugin 'newzealandpaul/wombat'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'guns/xterm-color-table.vim'
+Plugin 'vitaly/vim-vividchalk'
+Plugin 'newzealandpaul/wombat256mod'
+Plugin 'powerline/powerline'
+
+" Terminal / UNIX
+Plugin 'mileszs/ack.vim'
+Plugin 'vim-scripts/nginx.vim'
+
+"Android
+Plugin 'alderz/smali-vim'
+
+
+" Arduino
+Plugin 'sudar/vim-arduino-syntax.git'
+Plugin 'jplaut/vim-arduino-ino'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'sudar/vim-arduino-snippets'
+Plugin 'tclem/vim-arduino'
+
+" Other
+" ...
+"
+

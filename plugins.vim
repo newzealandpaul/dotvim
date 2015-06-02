@@ -1,3 +1,15 @@
+
+" make YCM compatible with UltiSnips (using supertab)
+" http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>""
+
+
 " showmarks
 let g:showmarks_enable = 0 " disabled by default by populardemand ;)
 hi! link ShowMarksHLl LineNr
@@ -8,7 +20,7 @@ hi! link ShowMarksHLm LineNr
 " syntastic
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
-let g:syntastic_quiet_warnings=1
+let g:syntastic_quiet_messages = {'level': 'warnings'}
 let g:syntastic_disabled_filetypes = ['html', 'xhtml']
 
 " delimitMate
@@ -70,15 +82,6 @@ let g:yankring_replace_n_nkey = '<leader>]'
 " ,y to show the yankring
 nmap <leader>y :YRShow<cr>
 let g:yankring_history_dir = '~/tmp/'
-
-" rails
-" completing Rails hangs a lot
-"let g:rubycomplete_rails = 1
-
-" command-t
-nmap <unique> <silent> <Leader><Leader> :CommandT<CR>
-nmap <unique> <silent> <Leader><Leader><Leader> :CommandTFlush<CR>:CommandT<CR>
-let g:CommandTMatchWindowAtTop=1
 
 " Fugitive
 " ,e for Ggrep
