@@ -24,7 +24,7 @@ Plugin 'ervandew/supertab'
 
 " Other Languages
 Plugin 'lukerandall/haskellmode-vim'
-Plugin 'vim-scripts/Vim-R-plugin'
+" Plugin 'vim-scripts/Vim-R-plugin'
 Plugin 'sirtaj/vim-openscad'
 
 "Mac
@@ -33,7 +33,7 @@ Plugin 'kana/vim-fakeclip'
 "Vim / Text 
 Plugin 'spolu/dwm.vim'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'vim-scripts/YankRing.vim'
+" Plugin 'vim-scripts/YankRing.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 " Plugin 'kien/ctrlp.vim'
 Plugin 'corntrace/bufexplorer'
@@ -44,9 +44,10 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 " Plugin 'shemerey/vim-peepopen'
+Plugin 'tpope/vim-obsession'
 
 "Vim Complete
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 
 "Vim Themes / Theme Support
 Plugin 'newzealandpaul/wombat'
@@ -57,19 +58,17 @@ Plugin 'newzealandpaul/wombat256mod'
 Plugin 'powerline/powerline'
 
 " Terminal / UNIX
-Plugin 'mileszs/ack.vim'
+" Plugin 'mileszs/ack.vim'
 Plugin 'vim-scripts/nginx.vim'
 
 "Android
-Plugin 'alderz/smali-vim'
+" Plugin 'alderz/smali-vim'
 
 
 " Arduino
-Plugin 'sudar/vim-arduino-syntax.git'
-Plugin 'jplaut/vim-arduino-ino'
-" Plugin 'SirVer/ultisnips'
-" Plugin 'sudar/vim-arduino-snippets'
-Plugin 'tclem/vim-arduino'
+" Plugin 'sudar/vim-arduino-syntax.git'
+" Plugin 'jplaut/vim-arduino-ino'
+" Plugin 'tclem/vim-arduino'
 
 " Other
 " ...
