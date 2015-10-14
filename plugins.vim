@@ -116,3 +116,19 @@ let g:DisableAutoPHPFolding = 1
 " Arduino Syntax
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
 autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
+
+"Airline
+let g:airline_theme='luna'
+
+"CRTL-Space
+"if executable("ag")
+      "let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+"endif
+"nnoremap <silent><C-p> :CtrlSpace O<CR>
+"let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+"let g:CtrlSpaceSaveWorkspaceOnExit = 1
+
+" CRTL-P
+"
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'

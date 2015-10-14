@@ -1,4 +1,4 @@
-" let mapleader = ","
+let mapleader = ","
 let maplocalleader = "\\"
 
 " easy escape
@@ -23,5 +23,5 @@ nmap <C-A> :b#<CR>
 
 " Faster leader?
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
-let mapleader = "\<Space>"
+"let mapleader = "\<Space>"
 nnoremap <Leader>w :w<CR>
