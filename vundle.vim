@@ -8,6 +8,8 @@ Plugin 'vim-scripts/closetag.vim'
 "Plugin 'spf13/PIV'
 "Plugin '2072/PHP-Indenting-for-VIm'
 
+" Python
+Plugin 'davidhalter/jedi-vim'
 
 " General Coding / Version Control
 "Plugin 'Raimondi/delimitMate'
@@ -48,7 +50,7 @@ Plugin 'tpope/vim-surround'
 " Plugin 'tpope/vim-obsession'
 
 "Vim Complete / crtl-p type solutions
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 "Plugin 'szw/vim-ctrlspace'
 
 "Vim Themes / Theme Support
@@ -59,7 +61,12 @@ Plugin 'guns/xterm-color-table.vim'
 Plugin 'newzealandpaul/wombat256mod'
 "Plugin 'powerline/powerline'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
+"Writing
+Plugin 'junegunn/goyo.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 " Terminal / UNIX
 " Plugin 'mileszs/ack.vim'

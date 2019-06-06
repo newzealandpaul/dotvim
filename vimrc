@@ -2,6 +2,13 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
+
+" Disable insecure modelines
+set nomodeline
+
+" Fix Homebrew Problems
+let $PATH = '/usr/local/bin:'.$PATH
+
 call vundle#rc()
 source ~/.vim/vundle.vim
 " end vundle init

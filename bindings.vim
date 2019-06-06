@@ -25,3 +25,9 @@ nmap <C-A> :b#<CR>
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 "let mapleader = "\<Space>"
 nnoremap <Leader>w :w<CR>
+
+" https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>

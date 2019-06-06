@@ -94,3 +94,25 @@ runtime macros/matchit.vim
 
 "other
 set showtabline=0
+
+"buffer
+au BufRead,BufNewFile *.md setlocal wrap textwidth=80 linebreak nolist showbreak=…
+autocmd BufRead,BufNewFile */Scripts/*.md Goyo
+command! -nargs=* Wrap set wrap linebreak nolist showbreak=… textwidth=80
+
+vmap <D-j> gj
+vmap <D-k> gk
+vmap <D-4> g$
+vmap <D-6> g^
+vmap <D-0> g^
+nmap <D-j> gj
+nmap <D-k> gk
+nmap <D-4> g$
+nmap <D-6> g^
+nmap <D-0> g^
+
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-s> :nohl<CR><C-l>
+
+
+
